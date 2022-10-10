@@ -7,8 +7,8 @@ const LoginBox = () => {
   return (
     <div className='login-box'>
         <h2>Login</h2>
-        <TextField placeholder={"Email"}/>
-        <TextField placeholder={"Password"}/>
+        <TextField type={"text"} placeholder={"Email"}/>
+        <TextField type={"password"} placeholder={"Password"}/>
         <DropDown />
         <LoginButton text={"login"}/>
     </div>
