@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Course;
 
 class AddController extends Controller
 {
@@ -13,12 +14,29 @@ class AddController extends Controller
         $password = $request->password;
         $types_id=$request->types_id;
         
-        $add = User::
-        insert([
+        User::insert([
             'full_name' => $fullname,
             'email' => $email,
             'password' => $password,
             'types_id' => (int)$types_id,
+        ]);
+
+        return response()->json([
+            "status" => "Success"
+        ]);
+    }
+
+    function addCourse(Request $request){
+        $course_code = $request->course_code;
+        $course_name = $request->course_name;
+        $course_date = $request->course_date;
+        $id=$request->id;
+        
+        Course::insert([
+            'id'=>$id,
+            'course_code' => $course_code,
+            'course_name' => $course_name,
+            'course_date' => $course_date
         ]);
 
         return response()->json([
