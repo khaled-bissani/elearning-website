@@ -22,4 +22,17 @@ class AssignmentController extends Controller
             "status" => "Success"
         ]);
     }
+
+    function viewAssignment(Request $request){
+        $course_id=$request->course_id;
+
+        $assignment = Assignment::
+        where("courses_id",$course_id)
+        ->get(['assignment']);
+
+        return response()->json([
+            "status" => "Success",
+            "assignment"=> $assignment
+        ]);
+    }
 }

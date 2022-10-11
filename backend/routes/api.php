@@ -17,5 +17,6 @@ Route::group(["prefix"=>"v0.1"], function(){
         });
         Route::group(["prefix"=>"assignment"], function(){
             Route::post("/create_assignment", [AssignmentController::class, "createAssignment"])->name("create-assignment");
+            Route::post("/view_assignment", [AssignmentController::class, "viewAssignment"])->name("view-assignment");
         });
 });
