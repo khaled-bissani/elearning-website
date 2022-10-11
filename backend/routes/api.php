@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AddController;
 use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\AnnouncmentController;
 
 Route::group(["prefix"=>"v0.1"], function(){
         Route::group(["prefix"=>"authentication"], function(){
@@ -18,5 +19,8 @@ Route::group(["prefix"=>"v0.1"], function(){
         Route::group(["prefix"=>"assignment"], function(){
             Route::post("/create_assignment", [AssignmentController::class, "createAssignment"])->name("create-assignment");
             Route::post("/view_assignment", [AssignmentController::class, "viewAssignment"])->name("view-assignment");
+        });
+        Route::group(["prefix"=>"announcment"], function(){
+            Route::post("/create_announcment", [AnnouncmentController::class, "createAnnouncment"])->name("create-announcment");
         });
 });
