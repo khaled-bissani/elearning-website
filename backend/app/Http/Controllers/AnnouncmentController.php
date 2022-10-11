@@ -22,4 +22,17 @@ class AnnouncmentController extends Controller
             "status" => "Success"
         ]);
     }
+
+    function viewAnnouncment(Request $request){
+        $course_id=$request->course_id;
+
+        $announcment = Announcment::
+        where("courses_id",$course_id)
+        ->get(['announcment']);
+
+        return response()->json([
+            "status" => "Success",
+            "assignment"=> $announcment
+        ]);
+    }
 }

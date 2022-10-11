@@ -22,5 +22,6 @@ Route::group(["prefix"=>"v0.1"], function(){
         });
         Route::group(["prefix"=>"announcment"], function(){
             Route::post("/create_announcment", [AnnouncmentController::class, "createAnnouncment"])->name("create-announcment");
+            Route::post("/view_announcment", [AnnouncmentController::class, "viewAnnouncment"])->name("view-announcment");
         });
 });
